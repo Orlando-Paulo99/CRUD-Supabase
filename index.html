@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Dados para serem deletados</h1>
+    <input type="text" id="deleteCpf">
+    <button onclick="deletarCpf()">Excluir</button>
+
     
     <h1>Dados para inserir<h1>
     <input type="text" id="inserCpf">
@@ -17,9 +21,10 @@
 
     </div>
 
+
     <h1>Dados para Atulizar</h1>
-    <input type="text" id="cpf">
-    <input type="text" id="dados">
+    <input type="text" id="cpf" placeholder="insira o CPF que você deseja alterar o nome">
+    <input type="text" id="dados" placeholder="insira o novo nome">
     <button onclick="atualizando()">atualizar</button>
 
 </body>
@@ -112,7 +117,23 @@ atualizando();
 
 
 //deletar os dados
+async function deletarCpf() {
 
+    let deleteCpf=document.getElementById("deleteCpf").value
+
+    const {data,error} = await supabase
+    .from('crud')
+    .delete()
+    //informo a coluna que vai ser excluida e o deleteCpf é o valor que vai ser recebido pelo usuario para ser excluido
+    .eq('cpf',Number(deleteCpf))
+
+    if(error){
+        console.log(error)
+        return
+    }
+    console.log("excluido com sucesso");
+    
+}
 
 </script>
 </html>
