@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="container" onchange="selecione()">
+        <option value="1">---</option>
+        <option value="inserir">Inserir</option>
+        <option value="ler">Visualizar</option>
+        <option value="4">Atualizar</option>
+        <option value="5">Deletar</option>
+    </select>
+
+    <div id="tagCriada"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        //codigos supabase
+        const supabaseUrl = 'https://ofxudymzwrgluaeppcnp.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9meHVkeW16d3JnbHVhZXBwY25wIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEzMzg4MTMsImV4cCI6MjA3NjkxNDgxM30.D8O_WBcrBrZfbj84cerqjwFGFeUwWXVeOaD9jHPSBR4';
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        let vSelecionado=document.getElementById('container');
+        let dVazia=document.getElementById('tagCriada');
+        
+        async function selecione() {
+
+            dVazia.innerHTML="";
+            
+            switch(vSelecionado.value){
+
+             case "inserir":{
+
+                const inserId=document.createElement('input');
+                inserId.type="text";
+                inserId.id="id";
+                inserId.placeholder="Digite o id"
+
+                const nome=document.createElement('input');
+                nome.type="text";
+                nome.id="nome";
+                nome.placeholder="Digite seu nome";
+
+                dVazia.appendChild(inserId);    
+                dVazia.appendChild(nome);
+                   break;
+             }
+               
+
+            case "ler":{
+
+             
+                const{data,error}=await supabase
+                .from('anota')
+                .select("*");
+                 
+                if(error){
+                    console.log(error);
+                    return;
+                }
+
+                const lista=document.createElement('')
+                data.forEach(element => {
+
+                    p.innerHTML="o valor inserido foi:"+element.value_inserted;
+                    lista.appendChild(p);
+                });
+                dVazia.appendChild(lista);
+                break;   
+                
+
+            }
+
+                 
+            default :
+                alert('selecione o campo valido');
+                break
+
+
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>
