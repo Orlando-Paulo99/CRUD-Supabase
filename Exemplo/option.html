@@ -53,7 +53,7 @@
 
             case "ler":{
 
-             
+                //divVazia=document.getElementById("tagCriada");
                 const{data,error}=await supabase
                 .from('anota')
                 .select("*");
@@ -63,10 +63,11 @@
                     return;
                 }
 
-                const lista=document.createElement('')
+                const lista=document.createElement('ul')
                 data.forEach(element => {
 
-                    p.innerHTML="o valor inserido foi:"+element.value_inserted;
+                    const p=document.createElement('li')
+                    p.innerHTML=element.value_inserted;
                     lista.appendChild(p);
                 });
                 dVazia.appendChild(lista);
