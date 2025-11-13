@@ -17,10 +17,10 @@ O objetivo é demonstrar o funcionamento básico de operações em banco de dado
 
 🛠️ Tecnologias utilizadas
 
-HTML5
+HTML
 
-CSS3
+CSS
 
-JavaScript (ES6)
+JavaScript 
 
 Supabase 
