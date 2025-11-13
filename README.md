@@ -3,6 +3,8 @@
 Este projeto é um CRUD (Create, Read, Update, Delete) desenvolvido com HTML, CSS, JavaScript e Supabase como backend.
 O objetivo é demonstrar o funcionamento básico de operações em banco de dados de forma simples e funcional, ideal para estudos ou como base para projetos maiores.
 
+Observação: Está sem estilo,pois foi focado apenas na funcionalidade.
+
 🚀 Funcionalidades
 
 ➕ Criar novos registros no banco de dados
@@ -18,8 +20,6 @@ O objetivo é demonstrar o funcionamento básico de operações em banco de dado
 🛠️ Tecnologias utilizadas
 
 HTML
-
-CSS
 
 JavaScript 
 
